@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Carrega os scripts e o css externo -->
+    <link href="https://unpkg.com/tabulator-tables@4.0.5/dist/css/tabulator.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.0.5/dist/js/tabulator.min.js"></script>
+    <script
+  src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+  integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/4.4.3/js/jquery_wrapper.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+  
+</head>
+
+<body>
+    
+<!-- Cria os botões de navegações entre as páginas -->
+    <ul>
+        <li><a onclick="Administradoras();" href="#administradoras">Listar Administradoras</a></li>
+        <li><a onclick="Usuarios();" href="#usuarios">Listar Usuários</a></li>
+        <li><a onclick="Condominios();" href="#condominios">Listar Condomínios</a></li>
+        <li><a onclick="Emails();" href="#emails">Listar e-mails enviados</a></li>
+        <li><a onclick="FormEnviar();" href="#enviaremail">Enviar E-mail</a></li>
+
+    </ul>
+<!-- Cria um div para uso do tabulator, assim listando as requisições da API -->
+    <div id="list-table"></div>
+
+    <!-- Cria um div e o form para o envio de e-mails -->
+    <div id ="divform" class="container" style="visibility: collapse;">
+        <form onsubmit="EnviarEmail()">
+            <div class="row">
+                <div class="col-25">
+                    <label for="Remetente">Remetente</label>
+                </div>
+                <div class="col-75">
+                    <select id="remetente" name="remetente"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="Destinatario">Destinatário</label>
+                </div>
+                <div class="col-75">
+                    <select id="destinatario" name="destinatario"></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="Assunto">Assunto</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="assunto" name="assunto" placeholder="Seu assunto para o email..">
+                </div>
+            </div>          
+            <div class="row">
+                <div class="col-25">
+                    <label for="Conteudo">Conteúdo</label>
+                </div>
+                <div class="col-75">
+                    <textarea id="conteudo" name="conteudo" placeholder="Escreva o conteúdo do e-mail.." style="height:200px"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+
+    <!-- Carrega o script com as funções do projeto -->
+   <script type="text/javascript" language="javascript" src="script/script.js"></script>
+ 
+
+       
+</body>
+</html>
